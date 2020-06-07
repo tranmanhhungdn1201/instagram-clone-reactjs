@@ -27,7 +27,8 @@ class Register extends Component {
     console.log(this.state);
     axios.post('https://3x63k.sse.codesandbox.io/users', data)
          .then(function (response) {
-          if(response.success){
+      console.log(response);
+          if(response.data.success){
             return <Redirect to='/login'  />
           }
           })

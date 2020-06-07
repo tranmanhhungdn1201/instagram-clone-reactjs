@@ -10,7 +10,9 @@ import { BrowserRouter as Router } from "react-router-dom";
 class App extends Component {
   render() {
     return (
-        <Router routes={routes} />
+      <Router>
+        {routes}
+      </Router>
     );
   }
 }

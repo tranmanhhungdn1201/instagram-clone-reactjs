@@ -41,7 +41,7 @@ class Login extends Component {
           </FormGroup>
           <Row>
             <Col className="text-center">
-              <Link to="forget-pasword">Quên mật khẩu?</Link>
+              <Link to="forget-password">Quên mật khẩu?</Link>
               <Link to="register">Đăng ký</Link>
             </Col>
           </Row>
