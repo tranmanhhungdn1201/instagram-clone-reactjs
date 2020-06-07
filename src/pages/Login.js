@@ -14,7 +14,6 @@ class Login extends Component {
     const target = event.target;
     const value = target.value;
     const name = target.name;
-
     this.setState({
       [name]: value
     });
@@ -33,7 +32,7 @@ class Login extends Component {
           <FormGroup row>
             <Label for="password" sm={2}>Password</Label>
             <Col sm={10}>
-              <Input type="password" name="password" id="password" placeholder="Password" />
+              <Input type="password" name="password" id="password" placeholder="Password" onChange={this.handleInputChange}/>
             </Col>
           </FormGroup>
           <FormGroup className="text-center">
