@@ -1,30 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Container, Col, Form, FormGroup, Label, Input } from 'reactstrap';
 
-class Login extends Component {
-  render() {
-    return (
+const Login = (props) => {
+  return (
+    <Container>
+      <h1>Login</h1>
       <Form>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
-        </Form.Group>
-
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-        <Form.Group controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
+        <FormGroup row>
+          <Label for="email" sm={2} size="lg">Email</Label>
+          <Col sm={10}>
+            <Input type="email" name="email" id="email" placeholder="Email" />
+          </Col>
+        </FormGroup>
+        <FormGroup row>
+          <Label for="password" sm={2}>Password</Label>
+          <Col sm={10}>
+            <Input type="password" name="password" id="password" placeholder="Password" />
+          </Col>
+        </FormGroup>
       </Form>
-    );
-  }
+       <Row>
+        <Col>
+          <a href="#">Quên mật khẩu?</a>
+      <a href="#">Đăng ký</a></Col>
+      </Row>
+    </Container>
+  );
 }
 
 export default Login;
