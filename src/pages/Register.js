@@ -24,7 +24,7 @@ class Register extends Component {
   handleSubmit(){
     const data = this.state;
     console.log(this.state);
-    axios.post('https://3x63k.sse.codesandbox.io/posts', { "id": 2, "title": "json-server1", "author": "typicode1" })
+    axios.post('https://3x63k.sse.codesandbox.io/users', data)
          .then(function (response) {
             console.log(response);
           })
