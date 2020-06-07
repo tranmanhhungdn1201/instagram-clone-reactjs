@@ -15,7 +15,7 @@ class Login extends Component {
     const value = target.value;
     const name = target.name;
     this.setState({
-      [name]: value
+      'email': value
     });
   }
   render(){

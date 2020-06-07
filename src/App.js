@@ -8,7 +8,7 @@ import ForgetPassword from './pages/ForgetPassword';
 class App extends Component {
   render() {
     return (
-      <Login />   
+      <Register />   
     );
   }
 }
