@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Form, FormGroup, Label, Input, Button} from 'reactstrap';
-im
+import axios from 'axios';
+
 class Register extends Component {
     constructor(props){
     super(props);
@@ -21,13 +22,21 @@ class Register extends Component {
     });
   }
   handleSubmit(){
+    const data = this.state;
     console.log(this.state);
+    axios.post('https://3x63k.sse.codesandbox.io/users', data)
+         .then(function (response) {
+            console.log(response);
+          })
+        .catch(function (error) {
+          console.log('error' + error);
+        });
   }
   render(){
       return (
         <Container>
           <h1  className="text-center">Register</h1>
-          <Form onSubmit={this.handleSubmit}>
+          <Form>
             <FormGroup row>
               <Label for="email" sm={2}>Email</Label>
               <Col sm={10}>
@@ -47,7 +56,7 @@ class Register extends Component {
               </Col>
             </FormGroup>
             <FormGroup className="text-center">
-              <Button type="Submit" value="Submit">Đăng Ký</Button>
+              <Button onClick={this.handleSubmit}>Đăng Ký</Button>
             </FormGroup>
           </Form>
         </Container>
