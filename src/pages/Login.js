@@ -1,13 +1,16 @@
 import React from 'react';
-import { Container, Col, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Container, Row, Col, Form, FormGroup, Label, Input, Button} from 'reactstrap';
 
 const Login = (props) => {
+  onLogin(){
+    
+  }
   return (
     <Container>
-      <h1>Login</h1>
+      <h1  className="text-center">Login</h1>
       <Form>
         <FormGroup row>
-          <Label for="email" sm={2} size="lg">Email</Label>
+          <Label for="email" sm={2}>Email</Label>
           <Col sm={10}>
             <Input type="email" name="email" id="email" placeholder="Email" />
           </Col>
@@ -18,12 +21,16 @@ const Login = (props) => {
             <Input type="password" name="password" id="password" placeholder="Password" />
           </Col>
         </FormGroup>
+        <FormGroup className="text-center">
+          <Button onSubmit={this.onLogin}>Đăng nhập</Button>
+        </FormGroup>
+        <Row>
+          <Col className="text-center">
+            <a href="#">Quên mật khẩu?</a>
+            <a href="#">Đăng ký</a>
+          </Col>
+        </Row>
       </Form>
-       <Row>
-        <Col>
-          <a href="#">Quên mật khẩu?</a>
-      <a href="#">Đăng ký</a></Col>
-      </Row>
     </Container>
   );
 }
