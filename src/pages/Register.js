@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Form, FormGroup, Label, Input, Button} from 'reactstrap';
-
+im
 class Register extends Component {
     constructor(props){
     super(props);
@@ -10,22 +10,24 @@ class Register extends Component {
       repassword: '',
     };
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleInputChange(event){
     const target = event.target;
     const value = target.value;
     const name = target.name;
-    console.log(name, value);
     this.setState({
-      []: value
+      [name]: value
     });
+  }
+  handleSubmit(){
     console.log(this.state);
   }
   render(){
       return (
         <Container>
           <h1  className="text-center">Register</h1>
-          <Form>
+          <Form onSubmit={this.handleSubmit}>
             <FormGroup row>
               <Label for="email" sm={2}>Email</Label>
               <Col sm={10}>
@@ -45,7 +47,7 @@ class Register extends Component {
               </Col>
             </FormGroup>
             <FormGroup className="text-center">
-              <Button on>Đăng Ký</Button>
+              <Button type="Submit" value="Submit">Đăng Ký</Button>
             </FormGroup>
           </Form>
         </Container>
