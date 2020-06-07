@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Form, FormGroup, Label, Input, Button} from 'reactstrap';
+import { Link } from "react-router-dom";
 
 class Login extends Component {
   constructor(props){
@@ -40,8 +41,8 @@ class Login extends Component {
           </FormGroup>
           <Row>
             <Col className="text-center">
-              <a href="#">Quên mật khẩu?</a>
-              <a href="#">Đăng ký</a>
+              <Link to="forget-pasword">Quên mật khẩu?</Link>
+              <Link to="register">Đăng ký</Link>
             </Col>
           </Row>
         </Form>
