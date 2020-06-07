@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Form, FormGroup, Label, Input, Button} from 'reactstrap';
 import axios from 'axios';
+import  { Redirect } from 'react-router-dom'
 
 class Register extends Component {
     constructor(props){
@@ -26,7 +27,9 @@ class Register extends Component {
     console.log(this.state);
     axios.post('https://3x63k.sse.codesandbox.io/users', data)
          .then(function (response) {
-            console.log(response);
+          if(response.success){
+            return <Redirect to='/login'  />
+          }
           })
         .catch(function (error) {
           console.log('error' + error);
