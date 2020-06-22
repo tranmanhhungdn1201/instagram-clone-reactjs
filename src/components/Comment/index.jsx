@@ -10,7 +10,7 @@ function Comment(props) {
         <InputGroup>
             <Input
               type="text"
-              placeholder="Comment..."
+              placeholder="Thêm bình luận..."
               data-id={idPost}
               value={comment}
               onChange={handleInput}

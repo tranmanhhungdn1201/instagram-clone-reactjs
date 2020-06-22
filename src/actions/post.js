@@ -1,7 +1,7 @@
 import httpClient from './httpClient';
 
 httpClient.getAllPost = function(){
-    return this({method:"get", url:"https://6hc5k.sse.codesandbox.io/api/posts"})
+    return this({method:"get", url:"http://localhost:8080/api/posts"})
                 .then(response => {
                     if(response.data.success){
                         return response.data.posts;
@@ -12,7 +12,7 @@ httpClient.getAllPost = function(){
 }
 
 httpClient.getAllLike = function(){
-    return this({method:"get", url:"https://6hc5k.sse.codesandbox.io/api/likes"})
+    return this({method:"get", url:"http://localhost:8080/api/likes"})
                 .then(response => {
                     if(response.data){
                         return response.data;
@@ -24,7 +24,7 @@ httpClient.getAllLike = function(){
 
 
 httpClient.getAllLikeBelongsUser = function(){
-    return this({method:"get", url:"https://6hc5k.sse.codesandbox.io/api/likes/user"})
+    return this({method:"get", url:"http://localhost:8080/api/likes/user"})
                 .then(response => {
                     if(response.data){
                         return response.data;
@@ -35,7 +35,7 @@ httpClient.getAllLikeBelongsUser = function(){
 }
 
 httpClient.likePost = function(data){
-    return this({method:"post", url:"https://6hc5k.sse.codesandbox.io/api/likes/like", data: data})
+    return this({method:"post", url:"http://localhost:8080/api/likes/like", data: data})
                 .then(response => {
                     if(response.data.success){
                         return response.data.like;
@@ -46,14 +46,14 @@ httpClient.likePost = function(data){
 }
 
 httpClient.dislikePost = function(data){
-    return this({method:"post", url:"https://6hc5k.sse.codesandbox.io/api/likes/dislike", data: data})
+    return this({method:"post", url:"http://localhost:8080/api/likes/dislike", data: data})
                 .then(response => {
                         return response.data.success;
                 })
 }
 
 httpClient.commentPost = function(data){
-    return this({method:"post", url:"https://6hc5k.sse.codesandbox.io/api/posts/comment", data: data})
+    return this({method:"post", url:"http://localhost:8080/api/posts/comment", data: data})
                 .then(response => {
                     if(response.data.success){
                         return response.data.comment;

@@ -2,7 +2,7 @@ import httpClient from './httpClient';
 import jwtDecode from 'jwt-decode';
 
 httpClient.getAllNotificationByUser = function(userId) {
-	return this({ method: 'get', url: 'https://6hc5k.sse.codesandbox.io/api/notifications/' + userId})
+	return this({ method: 'get', url: 'http://localhost:8080/api/notifications/' + userId})
 		.then((serverResponse) => {
 			const token = serverResponse.data.token
 			if(serverResponse.data.success) {
@@ -14,7 +14,7 @@ httpClient.getAllNotificationByUser = function(userId) {
 }
 
 httpClient.sendNotify = function(data) {
-	return this({ method: 'post', url: 'https://6hc5k.sse.codesandbox.io/api/notifications', data: data})
+	return this({ method: 'post', url: 'http://localhost:8080/api/notifications', data: data})
 		.then((serverResponse) => {
 			const token = serverResponse.data.token
 			if(token) {

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Form, FormGroup, Label, Input, Button} from 'reactstrap';
-import { Link, Redirect } from "react-router-dom";
-import auth from '../actions/auth';
+import { Container, Row, Col, Form, Input, Button} from 'reactstrap';
+import { Link } from "react-router-dom";
+import auth from '../../actions/auth';
+import Logo from '../../components/Logo';
+import './Login.scss';
 
 const initialState = {
   email: '',
@@ -61,8 +63,7 @@ class Login extends Component {
       let currentComponent = this;
       auth.logIn(data).then(user => {
         if(user) {
-          console.log('login ok')
-          currentComponent.props.history.push('/timeline');
+          currentComponent.props.history.push('/');
         }
       });
     }
@@ -72,26 +73,20 @@ class Login extends Component {
     const {errorEmail, errorPassword, errorLogin} = this.state;
     return (
       <Container>
-        <h1  className="text-center">Login</h1>
-        <Form>
-          <FormGroup row>
-            <Label for="email" sm={2}>Email</Label>
-            <Col sm={10}>
-              <Input type="email" name="email" id="email" placeholder="Email" onChange={this.handleInputChange}/>
-              <p className="text-danger">{ errorEmail }</p>
-            </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Label for="password" sm={2}>Password</Label>
-            <Col sm={10}>
-              <Input type="password" name="password" id="password" placeholder="Password" onChange={this.handleInputChange}/>
-              <p className="text-danger">{ errorPassword }</p>
-            </Col>
-          </FormGroup>
-          <FormGroup className="text-center">
+        <Form className="card-login">
+          <Logo />
+          <Col sm={10}>
+            <Input type="email" name="email" id="email" placeholder="Email" onChange={this.handleInputChange}/>
+            <p className="text-danger">{ errorEmail }</p>
+          </Col>
+          <Col sm={10}>
+            <Input type="password" name="password" id="password" placeholder="Mật khẩu" onChange={this.handleInputChange}/>
+            <p className="text-danger">{ errorPassword }</p>
+          </Col>
+          <Col sm={10}>
             <Button onClick={this.onLogin}>Đăng nhập</Button>
-            <p className="text-danger">{ errorLogin }</p>
-          </FormGroup>
+          </Col>
+          <p className="text-danger">{ errorLogin }</p>
           <Row>
             <Col className="text-center">
               <Link to="forget-password">Quên mật khẩu?</Link>

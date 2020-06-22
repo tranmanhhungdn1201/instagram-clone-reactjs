@@ -1,0 +1,27 @@
+.recommened-friend .title {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.recommened-friend .title p:last-child {
+    color: #333;
+    font-weight: bold;
+}
+
+.list-recommend-friend .item-friend {
+    display: flex;
+    align-items: center;
+}
+
+.list-recommend-friend .item-friend div {
+    flex-grow: 1;
+}
+
+.item-friend p {
+    margin: 0;
+}
+
+.item-friend p:first-child {
+    font-weight: bold;
+}

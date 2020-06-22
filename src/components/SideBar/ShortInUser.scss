@@ -1,0 +1,23 @@
+.info-user {
+    display: flex;
+    align-items: center;
+}
+
+.info-user p{
+    margin: 0;
+}
+
+.info-user p:nth-child(1){
+    font-weight: bold;
+}
+
+.info-user p:nth-child(2){
+    color: #999;
+}
+
+.info-user img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+}

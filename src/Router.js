@@ -13,8 +13,8 @@ const routes = (
         <Route exact path="/login" component={Login}/>
         <Route exact path="/register" component={Register}/>
         <Route exact path="/forget-password" component={ForgetPassword}/>
-        <Route exact path="/posts/create" component={CreatePost}/>
-        <Route exact path="/timeline" component={Timeline}/>
+        <Route exact path="/posts/create" componcent={CreatePost}/>
+        <Route exact path="/" component={Timeline}/>
       </Route>
 )
 export default routes;

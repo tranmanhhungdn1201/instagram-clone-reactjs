@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Form, FormGroup, Label, Input, Button} from 'reactstrap';
-import auth from '../actions/auth';
+import { Container, Col, Form, Row, Input, Button} from 'reactstrap';
+import auth from '../../actions/auth';
+import { Link } from "react-router-dom";
+import Logo from '../../components/Logo';
+import './Register.scss';
 
 class Register extends Component {
     constructor(props){
@@ -80,40 +83,31 @@ class Register extends Component {
     const {errorEmail, errorPassword, errorRepassword, errorRegister, errorUserName} = this.state;
       return (
         <Container>
-          <h1  className="text-center">Register</h1>
-          <Form>
-            <FormGroup row>
-              <Label for="username" sm={2}>Username</Label>
-              <Col sm={10}>
-                <Input type="text" name="username" id="username" placeholder="Username" value={this.state.username} onChange={ this.handleInputChange }/>
-                <p className="text-danger">{ errorUserName }</p>
-              </Col>
-            </FormGroup>
-            <FormGroup row>
-              <Label for="email" sm={2}>Email</Label>
-              <Col sm={10}>
-                <Input type="email" name="email" id="email" placeholder="Email" value={this.state.email} onChange={ this.handleInputChange }/>
-                <p className="text-danger">{ errorEmail }</p>
-              </Col>
-            </FormGroup>
-            <FormGroup row>
-              <Label for="password" sm={2}>Mật khẩu</Label>
-              <Col sm={10}>
-                <Input type="password" name="password" id="password" placeholder="Mật khẩu" onChange={ this.handleInputChange }/>
-                <p className="text-danger">{ errorPassword }</p>
-              </Col>
-            </FormGroup>
-             <FormGroup row>
-              <Label for="repassword" sm={2}>Nhập lại mật khẩu</Label>
-              <Col sm={10}>
-                <Input type="password" name="repassword" id="repassword" placeholder="Nhập lại mật khẩu" onChange={ this.handleInputChange }/>
-                <p className="text-danger">{ errorRepassword }</p>
-              </Col>
-            </FormGroup>
-            <FormGroup className="text-center">
+          <Form className="card-register">
+            <Logo />
+            <Col sm={10}>
+              <Input type="text" name="username" id="username" placeholder="Tên người dùng" value={this.state.username} onChange={ this.handleInputChange }/>
+              <p className="text-danger">{ errorUserName }</p>
+            </Col>
+            <Col sm={10}>
+              <Input type="email" name="email" id="email" placeholder="Email" value={this.state.email} onChange={ this.handleInputChange }/>
+              <p className="text-danger">{ errorEmail }</p>
+            </Col>
+            <Col sm={10}>
+              <Input type="password" name="password" id="password" placeholder="Mật khẩu" onChange={ this.handleInputChange }/>
+              <p className="text-danger">{ errorPassword }</p>
+            </Col>
+            <Col sm={10}>
+              <p className="text-danger">{ errorRepassword }</p>
+            </Col>
+            <Col sm={10}>
               <Button onClick={this.handleSubmit}>Đăng Ký</Button>
-              <p className="text-danger">{ errorRegister }</p>
-            </FormGroup>
+            </Col>
+            <Row>
+              <Col className="text-center mt-3">
+                <Link to="login">Đăng Nhập</Link>
+              </Col>
+            </Row>
           </Form>
         </Container>
     );
