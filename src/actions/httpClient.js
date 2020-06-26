@@ -25,5 +25,11 @@ httpClient.logOut = function() {
 	return true
 }
 
+httpClient.isLogin = function() {
+	const token = this.getToken();
+	if(token) return true;
+	return false;
+}
+
 httpClient.defaults.headers.common.token = httpClient.getToken()
 export default httpClient;

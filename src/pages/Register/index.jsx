@@ -84,7 +84,7 @@ class Register extends Component {
       return (
         <Container>
           <Form className="card-register">
-            <Logo />
+            <Logo width={250} height={100}/>
             <Col sm={10}>
               <Input type="text" name="username" id="username" placeholder="Tên người dùng" value={this.state.username} onChange={ this.handleInputChange }/>
               <p className="text-danger">{ errorUserName }</p>

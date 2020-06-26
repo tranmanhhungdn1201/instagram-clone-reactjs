@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Form, FormGroup, Label, Input, Button, CustomInput} from 'reactstrap';
-import { Link } from "react-router-dom";
 import axios from 'axios';
+import post from '../../actions/post';
 
 class CreatePost extends Component {
   constructor(props){
@@ -63,17 +63,9 @@ class CreatePost extends Component {
       const data = new FormData();
       data.append('file', this.state.fileImage);
       data.append('caption', this.state.caption);
-      const accessToken = localStorage.getItem('token');
-      axios.post("https://6hc5k.sse.codesandbox.io/api/posts/create", data, {
-        headers: {
-          Authorization: 'Bearer ' + accessToken
-        }
-      })
-        .then(function (response) {
-          console.log(response.data);
-          if(response.data.success){
-            console.log('oke')
-          }
+      post.createPost(data)
+        .then((data) => {
+          console.log(data);
         })
         .catch(function (error) {
           console.log('error' + error);

@@ -1,0 +1,48 @@
+.image-card {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.image-card img{
+    width: 300px;
+    height: 300px;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    background-color: rgba(155, 149, 149, 0.3);
+}
+
+.image-card:hover .overlay {
+    opacity: 1;
+}
+
+.icon {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.icon span{
+    font-size: 20px;
+    padding: 0 15px;
+}

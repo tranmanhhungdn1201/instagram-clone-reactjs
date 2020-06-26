@@ -62,4 +62,27 @@ httpClient.commentPost = function(data){
                 })
 }
 
+httpClient.createPost = function(data){
+    return this({method:"post", url:"http://localhost:8080/api/posts/create", data: data})
+                .then(response => {
+                    console.log(response)
+                    if(response.data.success){
+                        return response.data.comment;
+                    }
+                    return false;
+                })
+}
+
+httpClient.getPostByUser = function(userName){
+    return this({method:"get", url:"http://localhost:8080/api/posts/" + userName})
+                .then(response => {
+                    if(response.data.success){
+                        return response.data.posts;
+                    }
+                    return false;
+                })
+}
+
+
+
 export default httpClient;

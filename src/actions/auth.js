@@ -29,4 +29,15 @@ httpClient.signUp = function(userInfo) {
 		})
 }
 
+httpClient.getUserByUserName = function(userName) {
+	return this({ method: 'get', url: 'http://localhost:8080/api/users/' + userName})
+		.then((res) => {
+			if(res.data.success) {
+				return res.data.user;
+			} else {
+				return false
+			}
+		})
+}
+
 export default httpClient;

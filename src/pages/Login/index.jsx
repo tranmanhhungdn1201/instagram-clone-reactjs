@@ -74,7 +74,7 @@ class Login extends Component {
     return (
       <Container>
         <Form className="card-login">
-          <Logo />
+          <Logo width={250} height={100}/>
           <Col sm={10}>
             <Input type="email" name="email" id="email" placeholder="Email" onChange={this.handleInputChange}/>
             <p className="text-danger">{ errorEmail }</p>
