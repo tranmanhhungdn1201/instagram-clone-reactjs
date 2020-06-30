@@ -8,11 +8,11 @@ import PropTypes from 'prop-types';
 Comment.propTypes = {
   idPost: PropTypes.string
 }
+
 function Comment(props) {
     const {idPost} = props;
     const [ comment, setComment] = useState('');
     const {onCommentPost} = useContext(CommentContext);
-
     function handleInput(event){
       const value = event.target.value;
       setComment(value);

@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import {
-  Container,
-  Card, CardImg, CardBody,
-  CardTitle, CardSubtitle, Row, Col
+  Container, Row, Col
 } from 'reactstrap';
-import Comment from '../../components/Comment';
 import httpClient from '../../actions/httpClient';
 import post from '../../actions/post';
 import notification from '../../actions/notification';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons'
-import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons'
 import Header from '../../components/Header';
 import SideBar from '../../components/SideBar';
 import CardPost from '../../components/CardPost';
 import CommentContext from '../../contexts/CommentContext';
+import LikeContext from '../../contexts/LikeContext';
+import './Home.scss';
 
 class Timeline extends Component {
   constructor(props){
@@ -86,6 +82,7 @@ class Timeline extends Component {
       }
     });
   }
+
   logOut() {
     if(httpClient.logOut()){
       this.props.history.push('/login');
@@ -133,43 +130,27 @@ class Timeline extends Component {
           <Container>
             <Row>
               <Col xs="8">
-                {/* {posts.map(post =>
-                    <Card key={ post._id } className="mt-5">
-                      <CardImg top width="100%" src={ post.imageUrl} alt="Card image cap" />
-                      <CardBody>
-                        <CardTitle>{post.user.username}:{ post.caption }</CardTitle>
-                        <span className="mr-1">{ likes.filter(like => like.postId === post._id).length }</span>
-                        {
-                          userLikes.some(like => like.postId === post._id)
-                          ? <FontAwesomeIcon data-id={post._id} onClick={this.onUnLikePost} icon={faHeartSolid} />
-                          : <FontAwesomeIcon data-id={post._id} data-user-id={post.user._id} onClick={this.onLikePost} icon={faHeartRegular} />
-                        }
-                        <hr/>
-                        {
-                          post.comments && post.comments.map((comment, index) =>
-                            <CardSubtitle className="p-2" key={index}>{comment.username}: {comment.content}</CardSubtitle>
-                          )
-                        }
-                        <Comment idPost={post._id} comment={comment} handleInput={this.handleInput} handleKeyUp={this.handleKeyUp}/>
-                      </CardBody>
-                    </Card>
-                )} */}
                 <CommentContext.Provider
                   value={{
-                      onCommentPost: this.onCommentPost
+                    onCommentPost: this.onCommentPost
+                  }}
+                  >
+                  <LikeContext.Provider
+                    value={{
+                      onUnLikePost: this.onUnLikePost,
+                      onLikePost: this.onLikePost
                     }}
                   >
                   {posts.map(post =>
                     <CardPost
+                      isLike={userLikes.some(like => like.postId === post._id)}
                       key={post._id}
                       post={post}
-                      userLikes={userLikes}
                       likes={likes}
-                      onUnLikePost={this.onUnLikePost}
-                      onLikePost={this.onLikePost}
                     />
                     )
                   }
+                 </LikeContext.Provider>
                  </CommentContext.Provider>
               </Col>
               <Col xs="4">

@@ -5,6 +5,7 @@ import ImagePostGallery from '../../components/ImagePostGallery';
 import post from '../../actions/post';
 import auth from '../../actions/auth';
 import { useState } from 'react';
+import CommentContext from '../../contexts/CommentContext';
 
 function UserPost(props) {
     const [posts, setPosts] = useState([]);
@@ -16,16 +17,35 @@ function UserPost(props) {
             setPosts(posts);
         });
         auth.getUserByUserName(userName).then(info => {
-            console.log(info.user.username);
             setInfo(info);
         });
     }, []);
 
+    function onCommentPost(data){
+        const idPost = data.idPost
+        console.log(data);
+        post.commentPost(data).then(comment => {
+          let indexPost = posts.findIndex(post => post._id === idPost);
+          let post = JSON.stringify(posts[indexPost]);
+          post = JSON.parse(post);
+          post.comments.push(comment);
+          setPosts(
+            [...posts.slice(0, indexPost), post, ...posts.slice(indexPost + 1)]
+          );
+        });
+    }
+
     return (
         <>
-        {/* <Header /> */}
+        <Header />
         <InfoUser info={info}/>
-        <ImagePostGallery posts={posts} />
+        <CommentContext.Provider
+            value={{
+                onCommentPost: onCommentPost
+            }}
+        >
+            <ImagePostGallery posts={posts} />
+        </CommentContext.Provider>
         </>
     );
 }

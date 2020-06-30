@@ -2,7 +2,13 @@
     display: flex;
     align-items: center;
     background-color: #fff;
-    
+}
+
+.card-post .title a {
+    color: #333;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 5px;
 }
 
 .card-post .title span {

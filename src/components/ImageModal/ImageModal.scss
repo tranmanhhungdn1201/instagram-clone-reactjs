@@ -1,0 +1,48 @@
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1025;
+}
+
+.content {
+    display: flex;
+    width: auto;
+    height: 600px;
+    background-color: white;
+}
+
+.content .img-post {
+    width: 600px;
+    height: 600px;
+}
+
+.content .comment-post {
+    width: 350px;
+}
+
+.content .comment-post .comments {
+    max-height: 433px;
+    overflow-y: auto;
+}
+
+
+.title-post {
+    border-bottom: 1px solid #ddd;
+}
+
+.post-comment {
+    margin: 0;
+    padding: 20px;
+}
+
+.post-comment .time-comment {
+    font-size: 13px;
+    color: #999;
+}

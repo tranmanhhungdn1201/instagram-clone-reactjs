@@ -14,7 +14,7 @@ function ImagePostGallery(props) {
             <hr/>
             <Row>
                 {
-                    posts.map(post => 
+                    posts.map(post =>
                         <Col sm="4">
                             <ImageCard
                                 post={post}
