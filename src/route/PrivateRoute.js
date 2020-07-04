@@ -4,14 +4,15 @@ import httpClient from '../actions/httpClient';
 
 const PrivateRoute = ({component: Component, ...rest}) => {
     return (
-        <Route {...rest} render={props => (
-            httpClient.isLogin() ?
+        <Route {...rest} render={props => {
+
+            return httpClient.isLogin() ?
                 <Component {...props} />
             : <Redirect to={{
                 pathname: "/login",
                 state: { from: props.location }
             }} />
-        )} />
+        }} />
     );
 };
 

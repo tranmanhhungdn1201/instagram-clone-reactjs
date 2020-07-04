@@ -1,5 +1,6 @@
 import httpClient from './httpClient';
 import jwtDecode from 'jwt-decode';
+const queryString = require('query-string');
 
 httpClient.logIn = function(credentials) {
 	return this({ method: 'post', url: 'http://localhost:8080/api/users/authenticate', data: credentials })
@@ -33,10 +34,32 @@ httpClient.getUserByUserName = function(userName) {
 	return this({ method: 'get', url: 'http://localhost:8080/api/users/' + userName})
 		.then((res) => {
 			if(res.data.success) {
-				return res.data.user;
+				return res.data;
 			} else {
 				return false
 			}
+		})
+}
+
+httpClient.getUsers = function(content) {
+	var query = '';
+	if(content){
+		query = '?' + queryString.stringify({query: content});
+	}
+	return this({ method: 'get', url: 'http://localhost:8080/api/users' + query})
+		.then((res) => {
+			if(res.data.success) {
+				return res.data.users;
+			} else {
+				return false
+			}
+		})
+}
+
+httpClient.folowUser = function(username) {
+	return this({ method: 'post', url: 'http://localhost:8080/api/users/' + username + '/following'})
+		.then((res) => {
+				return res.data.success
 		})
 }
 

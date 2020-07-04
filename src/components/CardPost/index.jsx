@@ -27,7 +27,7 @@ function CardPost(props) {
         <Card className="card-post mt-5">
             <CardHeader className="title">
                 <ImageUser
-                    srcImg="https://instagram.fhan2-3.fna.fbcdn.net/v/t51.2885-19/s320x320/101398119_727257868032169_1713471211259822080_n.jpg?_nc_ht=instagram.fhan2-3.fna.fbcdn.net&_nc_ohc=Rudj3Hl3y50AX9a35XT&oh=80981382c327f5c3f36fcbb6ab9a8c54&oe=5F19FEA6"
+                    srcImg={post.user.avatar}
                     altImg={post.user.username}
                     width={40}
                     height={40}

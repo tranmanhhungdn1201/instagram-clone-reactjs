@@ -52,7 +52,7 @@ function ImageModal({ modal, close, post}) {
                     }
                 </div>
                 <ActionPost post={post} />
-                <span className="mr-1">3 người khác đã thích</span>
+                <span className="ml-2">3 người khác đã thích</span>
                 <Comment idPost={post._id}/>
             </div>
         </div>

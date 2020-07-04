@@ -12,7 +12,7 @@ function RecommendFriends(props) {
             <div className="list-recommend-friend">
                 <div className="item-friend">
                     <ImageUser
-                        srcImg="https://instagram.fhan2-2.fna.fbcdn.net/v/t51.2885-15/e35/20398817_242067519646715_9028720386673475584_n.jpg?_nc_ht=instagram.fhan2-2.fna.fbcdn.net&_nc_cat=111&_nc_ohc=dd4a3BBMXdYAX9MqJ2P&oh=4af34909b6e0abc674631545d795bf3c&oe=5F1B58A7"
+                        srcImg="https://instagram.fhan2-3.fna.fbcdn.net/v/t51.2885-19/s150x150/101642534_870812113415695_3919789580433227776_n.jpg?_nc_ht=instagram.fhan2-3.fna.fbcdn.net&_nc_ohc=Q7Fl7BJjFfkAX9HSZAt&oh=9513ed50cdf1bb946098c002806aa24e&oe=5F273814"
                         altImg="avatar-user"
                         width={50}
                         height={50}

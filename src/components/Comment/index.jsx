@@ -11,8 +11,9 @@ Comment.propTypes = {
 
 function Comment(props) {
     const {idPost} = props;
-    const [ comment, setComment] = useState('');
+    const [comment, setComment] = useState('');
     const {onCommentPost} = useContext(CommentContext);
+
     function handleInput(event){
       const value = event.target.value;
       setComment(value);

@@ -3,6 +3,18 @@
   background-color: #fafafa;
 }
 
+a {
+  color: #333;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
 .username {
   font-size: 15px;
   font-weight: 500;

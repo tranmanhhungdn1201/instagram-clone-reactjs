@@ -15,7 +15,7 @@ ImageCard.propTypes = {
 function ImageCard(props) {
     const {post} = props;
     const [modal, setModal] = useState(false);
-    const toggle = (event) => setModal(!modal);
+    const toggle = () => setModal(!modal);
 
     const close = () => setModal(false);
 

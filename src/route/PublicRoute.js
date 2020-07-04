@@ -4,11 +4,11 @@ import httpClient from '../actions/httpClient';
 
 const PublicRoute = ({component: Component, ...rest}) => {
     return (
-        <Route {...rest} render={props => (
-            httpClient.isLogin() ?
-                <Redirect to="/dashboard" />
-            : <Component {...props} />
-        )} />
+        <Route {...rest} render={props => {
+            return httpClient.isLogin() ?
+            <Redirect to="/" />
+        : <Component {...props} />
+        }} />
     );
 };
 

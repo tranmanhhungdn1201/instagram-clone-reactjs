@@ -6,7 +6,6 @@ import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons'
 import { faComment } from '@fortawesome/free-regular-svg-icons'
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons'
 import LikeContext from '../../contexts/LikeContext';
-import { Row } from 'reactstrap';
 
 ActionPost.propTypes = {
     
@@ -15,6 +14,7 @@ ActionPost.propTypes = {
 function ActionPost(props) {
     const {post, isLike} = props;
     const {onUnLikePost, onLikePost} = useContext(LikeContext);
+
     function handleClickUnLike(idPost){
         if(onUnLikePost){
             onUnLikePost(idPost);
